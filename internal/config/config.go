@@ -13,6 +13,9 @@ type Config struct {
 
 func LoadConfig() (*Config, error) {
 
+	//todo: add functionality to support different methods of storage using methods and interfaces
+	// e.g filesystem aws s3 storage etc allows mocking
+
 	outputDirectory := os.Getenv("OUTPUT_DIRECTORY")
 	if outputDirectory == "" {
 		return nil, fmt.Errorf("OUTPUT_DIRECTORY variable is not set")

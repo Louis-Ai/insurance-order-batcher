@@ -24,7 +24,9 @@ func (h *OrderHandler) SubmitOrder(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&order)
 	if err != nil {
 		http.Error(w, "invalid request body", http.StatusBadRequest)
+		return
 	}
+	//todo: decide if we should add errors to the caller or mask depending on where
 
 	err = h.orderService.AddOrderToBatch(&order)
 	if err != nil {

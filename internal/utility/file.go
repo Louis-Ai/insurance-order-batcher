@@ -8,6 +8,9 @@ import (
 	"github.com/Louis-Ai/insurance-order-batcher/internal/models"
 )
 
+//todo: add functionality for kafka to add new entries for each order
+//todo: db connection to also store orders rather than in memory store
+
 func WriteToCSV(filename string, orders *[]models.Order) error {
 	file, err := os.Create(filename)
 	if err != nil {
